@@ -1,0 +1,13 @@
+<odoo>
+    <!--inherit sale order form view-->
+    <record id="view_inherit_sale_order_add_merge_button" model="ir.ui.view">
+        <field name="name">sale.order.add.merge.button</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_confirm'][2]" position="after">
+                <button name="action_merge_order" string="Merge" type="object"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

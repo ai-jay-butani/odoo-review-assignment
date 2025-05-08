@@ -8,7 +8,6 @@
     'description': "Sale Order Merge",
     'website': 'https://www.aktivsoftware.com',
     'data':[
-        # 'views/sale_order_views.xml',
         'data/ir_server_action.xml',
     ],
     'depends': ['sale_management'],

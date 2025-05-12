@@ -20,6 +20,6 @@ class StockRule(models.Model):
         """
         group = values.get('group_id')
         if group and group.mrp_production_ids:
-            parent_mo = group.mrp_production_ids
-            origin = parent_mo._get_origin()
+            for parent_mo in group.mrp_production_ids:
+                origin = parent_mo._get_origin()
         return super()._prepare_mo_vals(product_id, product_qty, product_uom, location_dest_id, name, origin, company_id, values, bom)

@@ -24,4 +24,5 @@ class StockPicking(models.Model):
         """
         for picking in self:
             if picking.group_id.mrp_production_ids:
-                picking.origin = picking.group_id.mrp_production_ids.origin
+                for production in picking.group_id.mrp_production_ids:
+                    picking.origin = production.origin

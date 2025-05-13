@@ -1,5 +1,5 @@
 <odoo>
-    <!--inherit sale order form view-->
+    <!--inherit sale order form view add button-->
     <record id="view_inherit_sale_order_add_merge_button" model="ir.ui.view">
         <field name="name">sale.order.add.merge.button</field>
         <field name="model">sale.order</field>

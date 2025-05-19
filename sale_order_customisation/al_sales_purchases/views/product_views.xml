@@ -1,0 +1,27 @@
+<odoo>
+    <!--Inherit the product.product form view-->
+    <record id="product_normal_form_view_add_boolean" model="ir.ui.view">
+        <field name="name">product.product.form.add.boolean</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales']" position="inside">
+                <group>
+                    <field name="generate_rfq_on_so_confirm"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!--Inherit the product.product catalog kanban view-->
+    <record id="product_inherit_view_kanban_catalog" model="ir.ui.view">
+        <field name="name">product.view.kanban.catalog</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_view_kanban_catalog"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='image_128']" position="attributes">
+                <attribute name="style">margin-top:53px;</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

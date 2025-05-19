@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="al_sales_purchases.PatchedImageField" t-inherit="web.ImageField" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('o_clear_file_button')]" position="before">
+            <button
+                    t-if="props.record.data[props.name]"
+                    class="btn btn-light border-0 position-relative rounded-circle m-1 p-1"
+                    data-tooltip="Copy"
+                    aria-label="Copy"
+                    t-on-click="copyImageToClipboard">
+                <i class="fa fa-copy fa-fw"/>
+            </button>
+        </xpath>
+        <xpath expr="//div[hasclass('opacity-trigger-hover')]/div[1]" position="attributes">
+            <attribute name="t-if">fieldType !== 'many2one'</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_select_file_button')]" position="attributes">
+            <attribute name="t-if">!props.readonly</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_clear_file_button')]" position="attributes">
+            <attribute name="t-if">!props.readonly</attribute>
+        </xpath>
+    </t>
+</templates>
+

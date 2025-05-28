@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="mrp_bom_line_form_view" model="ir.ui.view">
+        <field name="name">mrp.bom.line.form.view</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div readonly="1">
+                        Component : <field name="product_id" readonly="1"/>
+                    </div>
+                    <field name="mrp_bom_line_alternates_ids">
+                        <list editable="bottom">
+                            <field name="bom_line_id" column_invisible="1"/>
+                            <field name="alternate_product_id" string="Alternate"/>
+                            <field name="alternate_type_id" string="Type"
+                                   options="{'no_quick_create': True, 'no_create_edit': True}"/>
+                            <field name="alternate_priority" string="Priority"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mrp_bom_line" model="ir.actions.act_window">
+        <field name="name">Maintain Alternate Products for Component</field>
+        <field name="res_model">mrp.bom.line</field>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>

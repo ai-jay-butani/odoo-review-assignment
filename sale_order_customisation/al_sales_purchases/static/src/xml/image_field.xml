@@ -13,6 +13,11 @@
         </xpath>
         <xpath expr="//div[hasclass('opacity-trigger-hover')]/div[1]" position="attributes">
             <attribute name="t-if">fieldType !== 'many2one'</attribute>
+            <attribute name="t-attf-class">
+                position-absolute d-flex justify-content-between w-100
+                {{ (props.imgClass == 'catalog_css') ? 'bottom_left' : 'bottom-0' }}
+                opacity-0 opacity-100-hover {{ isMobile ? 'o_mobile_controls' : '' }}
+            </attribute>
         </xpath>
         <xpath expr="//button[hasclass('o_select_file_button')]" position="attributes">
             <attribute name="t-if">!props.readonly</attribute>

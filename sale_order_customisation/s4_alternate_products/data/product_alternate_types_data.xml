@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<data>
+        <record id="product_alternate_types_1" model="product.alternate.types">
+			<field name="name">Optional</field>
+			<field name="description">Not required, but available as needed</field>
+			<field name="default">True</field>
+		</record>
+		<record id="product_alternate_types_2" model="product.alternate.types">
+			<field name="name">Consume First</field>
+			<field name="description">Consume any available inventory of this alternate product prior to consuming the primary product</field>
+			<field name="default">False</field>
+			<field name="active">False</field>
+		</record>
+		<record id="product_alternate_types_3" model="product.alternate.types">
+			<field name="name">Consume Last</field>
+			<field name="description">Consume any available inventory of the secondary product prior to consuming the primary product</field>
+			<field name="default">False</field>
+			<field name="active">False</field>
+		</record>
+		<record id="product_alternate_types_4" model="product.alternate.types">
+			<field name="name">Replacement</field>
+			<field name="description">Automatically replace the primary with this alternate on any transactional objects such as Purchase Orders and Manufacturing Orders</field>
+			<field name="default">False</field>
+			<field name="active">False</field>
+		</record>
+    </data>
+</odoo>

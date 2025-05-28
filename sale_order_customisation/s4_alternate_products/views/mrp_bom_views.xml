@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="a2z_mrp_bom_form_view_inherited" model="ir.ui.view">
+        <field name="name">mrp.bom.form.view.inherited</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='components']/field[@name='bom_line_ids']/list   " position="inside">
+                <field name="mrp_bom_line_alternates_ids" invisible="1"/>
+                <button name="maintain_alternates" icon="fa-arrows-h"
+                        type="object" class="oe_highlight oe_inline o_green_alternates"
+                        help="Maintain Alternates"
+                        invisible="not mrp_bom_line_alternates_ids"
+                />
+                <button name="maintain_alternates" icon="fa-arrows-h"
+                        type="object" class="oe_highlight oe_inline o_black_alternates"
+                        help="Maintain Alternates"
+                        invisible="mrp_bom_line_alternates_ids"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

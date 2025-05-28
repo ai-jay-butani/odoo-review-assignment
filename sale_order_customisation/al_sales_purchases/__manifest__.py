@@ -15,6 +15,7 @@
         'web.assets_backend': [
             'al_sales_purchases/static/src/js/image_copy.js',
             'al_sales_purchases/static/src/xml/image_field.xml',
+            'al_sales_purchases/static/src/scss/image_copy.scss',
         ]
     },
     'depends': ['sale_management', 'purchase'],

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="a2z_mrp_production_form_view_inherited" model="ir.ui.view">
+        <field name="name">mrp.production.view.form.inherited</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='bom_div']" position="after">
+                <field name="customer_id"/>
+            </xpath>
+
+            <xpath expr="//notebook/page[@name='components']/field[@name='move_raw_ids']/list" position="inside">
+                <field name="show_available_alternates" column_invisible="1"/>
+                <field name="alternate_product" column_invisible="1"/>
+                <button name="available_alternates" icon="fa-arrows-h"
+                        type="object" class="oe_highlight oe_inline"
+                        help="Available Alternates"
+                        invisible="not show_available_alternates or alternate_product"
+                />
+                <button name="available_alternates" icon="fa-arrows-h"
+                        type="object" class="oe_highlight oe_inline o_green_alternates"
+                        help="Available Alternates"
+                        invisible="not alternate_product"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

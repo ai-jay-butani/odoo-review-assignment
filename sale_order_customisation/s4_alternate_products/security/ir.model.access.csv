@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_global_alternates,access.product.global.alternates,model_product_global_alternates,,1,1,1,1
+access_product_alternate_types,access.product.alternate.types,model_product_alternate_types,,1,1,0,0
+access_mrp_bom_line_alternates,access.mrp.bom.line.alternates,model_mrp_bom_line_alternates,,1,1,1,1
+access_mrp_production_component_alternates,access.mrp.production.component.alternates,model_mrp_production_component_alternates,,1,1,1,1

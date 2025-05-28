@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_alternate_types_view" model="ir.ui.view">
+        <field name="name">product.alternate.types.view</field>
+        <field name="model">product.alternate.types</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="default"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+    <record id="product_alternate_types_form_view" model="ir.ui.view">
+        <field name="name">product.alternate.types.form.view</field>
+        <field name="model">product.alternate.types</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="default"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_product_alternate_types" model="ir.actions.act_window">
+        <field name="name">Product Alternate Types</field>
+        <field name="res_model">product.alternate.types</field>
+        <field name="view_mode">list,form</field>
+         <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Alternates Types!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_product_alternate_types"
+              name="Product Alternate Types"
+              action="action_product_alternate_types"
+              parent="s4_alternate_products.menu_alternate_products"
+    />
+</odoo>

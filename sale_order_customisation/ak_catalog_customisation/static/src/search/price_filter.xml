@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!-- 
+        Price Filter Template
+        =====================
+        This template extends the standard Odoo SearchPanel to add a price range filter.
+        It includes a dual-range slider and numeric inputs for precise price filtering.
+        
+        The filter is connected to the priceState from the component's state.
+    -->
+    <t t-name="ak_catalog_customisation.PriceFilterPatch" t-inherit="web.SearchPanel.Regular"
+       t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_search_panel')]" position="inside">
+            <section class="o_search_panel_section o_search_panel_filter">
+                <header class="o_search_panel_section_header pt-4 pb-2 text-uppercase cursor-default">
+                    <i t-attf-class="fa fa-clock-o o_search_panel_section_icon text-warning me-2"/>
+                    <b>Price Filter</b>
+                </header>
+
+                <!-- 
+                    Dual Range Slider Implementation
+                    ==============================
+                    This creates two overlapping range inputs styled to look like a single range slider
+                    with two handles. The actual implementation is handled by CSS.
+                -->
+                <div class="container">
+                   <div class="slider-track">
+                        <input type="range"
+                               t-att-min="priceState.minBound"
+                               t-att-max="priceState.maxBound"
+                               step="1"
+                               t-att-value="priceState.minPrice"
+                               t-on-input="onMinPriceChange"
+                        />
+
+                       <!-- Maximum price range input (right handle) -->
+                       <input type="range"
+                              t-att-min="priceState.minBound"
+                              t-att-max="priceState.maxBound"
+                              step="1"
+                              t-att-value="priceState.maxPrice"
+                              t-on-input="onMaxPriceChange"
+                       />
+                   </div>
+                </div>
+
+                <!-- 
+                    Numeric Inputs
+                    ==============
+                    Provides exact numeric input for both minimum and maximum prices.
+                    These inputs are synchronized with the range sliders above.
+                -->
+                <div class="d-flex justify-content-between gap-2">
+                    <input type="number"
+                           class="form-control"
+                           t-att-value="priceState.minPrice"
+                           placeholder="Min Price"
+                           min="0"
+                           t-on-input="onMinPriceChange"
+                           style="width: 48%;"/>
+
+                    <!-- Maximum price numeric input -->
+                    <input type="number"
+                           class="form-control"
+                           t-att-value="priceState.maxPrice"
+                           placeholder="Max Price"
+                           min="0"
+                           t-on-input="onMaxPriceChange"
+                           style="width: 48%;"/>
+                </div>
+            </section>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="stock_move_form_view" model="ir.ui.view">
+        <field name="name">stock.move.form.view</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div readonly="1" style="display:flex; justify-content: space-between">
+                        <field name="alternate_product" invisible="1"/>
+                        <span> Primary Component :
+                            <field name="product_id" readonly="1" invisible="alternate_product"/>
+                            <field name="original_primary_product_id" readonly="1" invisible="not alternate_product"/>
+                        </span>
+                        <button name="btn_reset_primary" string="Reset Primary"
+                                 type="object" class="oe_highlight oe_inline o_reset_primary_btn"
+                                 help="Reset Primary"
+                                 invisible="not alternate_product"
+                        />
+                    </div>
+                    <span invisible="not alternate_product">
+                        Current Component :
+                        <field name="product_id" readonly="1"/>
+                    </span>
+                    <field name="mrp_production_components_alternates_ids">
+                        <list editable="bottom" create="0" delete="0">
+                            <field name="move_id" column_invisible="1"/>
+                            <field name="bom_line_id" column_invisible="1"/>
+                            <field name="alternate_product_id" string="Alternate" readonly="1" style="pointer-events: none;"/>
+                            <field name="alternate_type_id" string="Type" readonly="1"
+                                   options="{'no_quick_create': True, 'no_create_edit': True}" style="pointer-events: none;"/>
+                            <field name="alternate_priority" string="Priority" readonly="1" style="pointer-events: none;"/>
+                            <field name="select_alternate" nolabel="1"/>
+                        </list>
+                    </field>
+                </sheet>
+                <footer>
+                    <field name="show_use_alternate" invisible="1"/>
+                    <button class="btn btn-primary" type="object" name="use_alternate" string="Use Alternate" invisible="not show_use_alternate"/>
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_stock_move" model="ir.actions.act_window">
+        <field name="name">Select Alternate Products for Component</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>

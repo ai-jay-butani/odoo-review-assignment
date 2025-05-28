@@ -15,12 +15,12 @@
 
     <!--Inherit the product.product catalog kanban view-->
     <record id="product_inherit_view_kanban_catalog" model="ir.ui.view">
-        <field name="name">product.view.kanban.catalog</field>
+        <field name="name">product.inherit.view.kanban.catalog</field>
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_view_kanban_catalog"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='image_128']" position="attributes">
-                <attribute name="style">margin-top:53px;</attribute>
+                <attribute name="options">{'size': [55, 55], 'img_class': 'catalog_css'}</attribute>
             </xpath>
         </field>
     </record>
